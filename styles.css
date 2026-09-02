@@ -64,3 +64,10 @@ footer a { margin-right: 0.75em; }
   pointer-events: none;
 }
 .name:hover .name-pic { opacity: 1; }
+
+
+/* info / CV page */
+.label { color: #999; margin-top: var(--lh); }
+.cv { list-style: none; }
+.cv li { padding: 0.4em 0; }
+.cv .when { display: block; color: #999; }   /* dates, muted, on their own line */
