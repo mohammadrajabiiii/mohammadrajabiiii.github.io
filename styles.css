@@ -87,3 +87,13 @@ blockquote {
   border-left: 2px solid #ccc;
   color: #555;
 }
+
+/* low-fi post images: grayscale, high contrast, crunchy pixels */
+.post-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: var(--lh) 0;
+  filter: grayscale(1) contrast(1.5);
+  image-rendering: pixelated;
+}
