@@ -1,0 +1,37 @@
+* { margin: 0; padding: 0; font: inherit; color: inherit; box-sizing: border-box; }
+
+:root { --lh: 1.5em; }               /* one line-height value, reused everywhere */
+
+::selection { background: #ddd; color: #000; }
+
+html {
+  margin: 0 0 0 calc(100vw - 100%);  /* stops the page shifting when a scrollbar appears */
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  font: 1em/var(--lh) monospace;     /* THE font choice — monospace */
+  background: #f2f2f2;               /* soft gray, not white */
+  padding: 16vh 2em 0;               /* push content down 16% of the screen */
+  display: grid;
+  grid: 1fr / minmax(auto, 64ch);    /* a single column, max 64 characters wide */
+  justify-content: center;           /* centered on the page */
+  height: 100%;
+}
+
+a { display: inline-block; padding: .16666em; margin-left: -.16666em; text-decoration: none; }
+a i { border-bottom: 1px dotted; }   /* the dotted underline on italic titles */
+a:active i { border: none; }
+
+h1, p, nav { margin-bottom: var(--lh); }
+nav { margin-top: -.16666em; }
+
+footer { padding: calc(var(--lh) * 2) 0 8vh; }
+footer p { margin: 0; }
+
+@media (max-device-width: 600px) {   /* phones: less top padding */
+  body { padding-top: 2em; justify-content: start; }
+  footer { padding-bottom: 2em; }
+  a i { border-color: #888; }
+}
