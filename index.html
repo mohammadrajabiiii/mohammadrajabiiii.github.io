@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Mohammad's mind dump">
+  <meta name="description" content="Write a one-line description here.">
   <title>Mohammad Rajabi</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
-    <h1>Mohammad Rajabi</h1>
+    <h1 class="name">
+      <span class="name-text">Mohammad Rajabi</span>
+      <img class="name-pic" src="me.jpg" alt="Mohammad Rajabi">
+    </h1>
     <p>-</p>
     <nav>
       <span>01.</span> <a href="posts/first-post.html"><i>My first post</i></a><br>
@@ -18,11 +21,24 @@
   <footer>
     <p>
       <a href="info.html"><i>Info</i></a>
-      <a href="https://instagram.com/mohammadrajabiiii"><i>Instagram</i></a>
-      <a href="https://www.linkedin.com/in/mohammadrajabiiii"><i>LinkedIn</i></a>
-      <a href="mailto:morajabiiii@gmail.com"><i>Mail</i></a>
+      <a href="https://instagram.com/mohammadrajabiiii" target="_blank" rel="noopener"><i>Instagram</i></a>
+      <a href="https://www.linkedin.com/in/mohammadrajabiiii" target="_blank" rel="noopener"><i>LinkedIn</i></a>
+      <a href="#" class="mail-copy" data-email="morajabiiii@gmail.com"><i>Mail</i></a>
     </p>
   </footer>
 
+  <script>
+    // when a "mail-copy" link is clicked, copy its email instead of opening a mail app
+    document.querySelectorAll('.mail-copy').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();                                  // don't follow the "#" link
+        navigator.clipboard.writeText(this.dataset.email);   // copy the address
+        var label = this.querySelector('i');
+        var original = label.textContent;
+        label.textContent = 'Copied!';                       // quick feedback
+        setTimeout(function () { label.textContent = original; }, 1500);
+      });
+    });
+  </script>
 </body>
 </html>
