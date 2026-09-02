@@ -77,3 +77,13 @@ footer a { margin-right: 0.75em; }
 .cv { list-style: none; }
 .cv li { padding: 0.4em 0; }
 .cv .when { display: block; color: #999; }   /* dates, muted, on their own line */
+
+
+/* blog post */
+.post-date { color: #999; margin-bottom: var(--lh); }
+blockquote {
+  margin: var(--lh) 0;
+  padding-left: 1em;
+  border-left: 2px solid #ccc;
+  color: #555;
+}
