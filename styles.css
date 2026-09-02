@@ -35,3 +35,15 @@ footer p { margin: 0; }
   footer { padding-bottom: 2em; }
   a i { border-color: #888; }
 }
+
+a {
+  transition: background 0.15s ease;   /* makes the change fade in smoothly */
+}
+
+a:hover {
+  background: #e2e2e2;                  /* subtle highlight box behind the link */
+}
+
+a:hover i {
+  border-bottom-style: solid;          /* the dotted underline goes solid on hover */
+}
