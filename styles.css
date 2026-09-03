@@ -102,3 +102,7 @@ h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
 .up { color: #bbb; }
 .up .slash { color: #888; }
 .up:hover { color: #16130f; }
+
+/* bold post titles, but keep the ../ breadcrumb normal weight */
+.post-title { font-weight: 700; }
+.post-title .up { font-weight: 400; }
