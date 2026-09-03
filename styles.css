@@ -106,3 +106,5 @@ h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
 /* bold post titles, but keep the ../ breadcrumb normal weight */
 .post-title { font-weight: 700; }
 .post-title .up { font-weight: 400; }
+
+.duck { display: block; width: 52px; height: auto; margin: var(--lh) 0 0.4em; }
