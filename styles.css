@@ -89,3 +89,10 @@ blockquote {
 /* bio: dim the connective words, keep key words full-strength */
 .bio { color: rgba(22, 19, 15, 0.4); }
 .bio .hi { color: #16130f; }
+
+
+/* long-form posts: subheadings, subtitle, bullet lists */
+h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
+.post-sub { color: #999; margin-bottom: var(--lh); }
+.post-list { padding-left: 1.2em; margin: var(--lh) 0; }
+.post-list li { margin: 0.35em 0; }
