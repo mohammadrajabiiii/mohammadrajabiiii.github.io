@@ -74,9 +74,15 @@ blockquote {
 }
 
 
-/* homepage menu */
-.menu a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* homepage: center the menu between the bio and the footer */
 .home { display: flex; flex-direction: column; }
 .home .menu { margin: auto 0; }
+
+
+/* footer year */
+.year { opacity: 0.4; margin-bottom: 0.4em; }
+
+/* bio: dim the connective words, keep key words full-strength */
+.bio { color: rgba(22, 19, 15, 0.4); }
+.bio .hi { color: #16130f; }
