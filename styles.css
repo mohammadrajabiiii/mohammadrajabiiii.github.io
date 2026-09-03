@@ -88,12 +88,12 @@ blockquote {
   color: #555;
 }
 
-/* low-fi post images: grayscale, high contrast, crunchy pixels */
+/* dithered image: keep the dots crisp when scaled up */
 .post-img {
   display: block;
   width: 100%;
   height: auto;
-  margin: var(--lh) 0;
-  filter: grayscale(1) contrast(1.5);
   image-rendering: pixelated;
+  margin: var(--lh) 0;
 }
+
