@@ -45,30 +45,6 @@ a:hover i {
 footer a { margin-right: 0.75em; }
 
 
-/* on hover: photo slides in from the right and rests to the LEFT of the name */
-.name { position: relative; display: inline-block; }
-
-.name-pic {
-  position: absolute;
-  right: 100%;                          /* sits just to the LEFT of the name */
-  margin-right: 0.5em;                  /* gap between photo and name */
-  top: 50%;
-  width: 3em;
-  height: 3em;
-  border-radius: 50%;
-  object-fit: cover;
-  opacity: 0;
-  transform: translate(1.5em, -50%);    /* starts shifted right + invisible */
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
-  mix-blend-mode: multiply;    /* white background blends away into the page */
-}
-.name:hover .name-pic {
-  opacity: 1;
-  transform: translate(0, -50%);        /* slides left into place, fading in */
-}
-
-
 
 
 
