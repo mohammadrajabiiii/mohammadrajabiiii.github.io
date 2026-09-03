@@ -96,3 +96,9 @@ h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
 .post-sub { color: #999; margin-bottom: var(--lh); }
 .post-list { padding-left: 1.2em; margin: var(--lh) 0; }
 .post-list li { margin: 0.35em 0; }
+
+
+/* breadcrumb up-link before page titles */
+.up { color: #bbb; }
+.up .slash { color: #888; }
+.up:hover { color: #16130f; }
