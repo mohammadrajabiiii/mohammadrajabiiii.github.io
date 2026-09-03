@@ -81,7 +81,8 @@ blockquote {
 
 
 /* footer year */
-.year { opacity: 0.4; margin-bottom: 0.4em; }
+.year { opacity: 0.4; margin-right: 0.75em; }
+
 
 /* bio: dim the connective words, keep key words full-strength */
 .bio { color: rgba(22, 19, 15, 0.4); }
