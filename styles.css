@@ -22,7 +22,6 @@ body {
 
 a { display: inline-block; padding: .16666em; margin-left: -.16666em; text-decoration: none; }
 a i { border-bottom: 1px dotted; }   /* the dotted underline on italic titles */
-a:active i { border: none; }
 
 h1, p, nav { margin-bottom: var(--lh); }
 nav { margin-top: -.16666em; }
@@ -41,6 +40,8 @@ footer p { margin: 0; display: flex; align-items: baseline; }
 a:hover i {
   border-bottom-style: solid;          /* the dotted underline goes solid on hover */
 }
+
+a:active i { border: none; }
 
 
 footer a { margin-right: 0.75em; }
