@@ -109,3 +109,13 @@ h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
 .post-title .up { font-weight: 400; }
 
 .duck { display: block; width: 52px; height: auto; margin: var(--lh) 0 0.4em; }
+
+.ico {
+  height: 1em;              /* try 1.1em or 1.2em if it looks small next to letters */
+  width: auto;
+  vertical-align: -0.15em;  /* more negative = lower; less = higher */
+  margin: 0 0.25em;
+}
+
+.mark { font-size: 1.6em; vertical-align: -0.15em; }
+
