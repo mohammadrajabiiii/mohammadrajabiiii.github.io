@@ -7,12 +7,21 @@
   <title>Mohammad Rajabi</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
   <link rel="stylesheet" href="styles.css">
+
+
 </head>
+
 <body>
   <main class="home">
     <h1>Mohammad Rajabi</h1>
 
-    <p class="bio">I'm a <span class="hi">Digital Designer</span> currently working ⛱ at <img class="ico" src="images/a4.svg" alt="A4 Design House"> <span class="hi"><a href="https://a4.design" target="_blank" rel="noopener"><i>A4DH <span class="mark">☞</span></i></a></span>, formerly lecturing <span class="hi">HCI</span> at <a href="https://khu.ac.ir/en" target="_blank" rel="noopener"><span class="hi"><i>KhU <span class="mark">☞</span></i></span></a>.</p>
+    <p class="bio">I'm a <span class="hi">Digital Designer</span> currently working at <img class="ico" src="images/a4.svg" alt="A4 Design House"> <span class="hi"><a href="https://a4.design" target="_blank" rel="noopener"><i>A4DH <span class="mark">☞</span></i></a></span>, formerly lecturing <span class="hi">HCI</span> at <a href="https://khu.ac.ir/en" target="_blank" rel="noopener"><span class="hi"><i>KhU <span class="mark">☞</span></i></span></a>. I am into <span class="hi">human-machine interaction</span> and I think <span class="hi">graphic design</span> is a ridiculous job to do.</p>
+
+<div class="status">
+  <span class="ago" data-date="2026-08-28"></span>
+  <p>😀 Published my first physical computing <a href="https://www.instagram.com/reel/Dcl04_cN4zi/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener"><i>project</i></a> on IG</p>
+</div>
+
 
     <nav class="menu">
       <a href="notes.html"><i>→ Notes</i></a><br>
@@ -44,5 +53,19 @@
       });
     });
   </script>
+
+  <script>
+  const el = document.querySelector('.status .ago');
+  const then = new Date(el.dataset.date);
+  const days = Math.floor((Date.now() - then) / 86400000);
+  const weeks = Math.floor(days / 7);
+
+  el.textContent =
+      days < 1  ? 'today'
+    : days < 7  ? days  + (days  === 1 ? ' day ago'  : ' days ago')
+    :             weeks + (weeks === 1 ? ' week ago' : ' weeks ago');
+  </script>
+
+
 </body>
 </html>

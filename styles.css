@@ -119,3 +119,15 @@ h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
 
 .mark { font-size: 1.6em; vertical-align: -0.15em; }
 
+.status {
+  background: #efefef;     
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: var(--lh);
+}
+
+
+.status .ago { color: #999; }        /* muted timestamp */
+.status p    { margin: 0.3em 0 0; }  /* small gap under the date — see note below */
+
