@@ -17,8 +17,8 @@ html {
    COLOR — one ink, three opacities (like Figma opacity %)
    ink = rgb(22, 19, 15) · last number is opacity (0–1)
    ============================================================ */
-.hi  { color: #16130f;    }   /* LEVEL 1 · highlight */
-.dim { color: #9e9d9c; }    /* LEVEL 3 · muted */
+.hi  { color: #16130f; }   /* LEVEL 1 · highlight */
+.dim { color: #9e9d9c; }   /* LEVEL 3 · muted */
 /* LEVEL 2 (default) lives on body below */
 
 /* ============================================================
@@ -38,12 +38,15 @@ body {
 /* ============================================================
    LINKS
    ============================================================ */
-a         { display: inline-block; padding: .16666em; margin-left: -.16666em; text-decoration: none; }
-a i {
+a { display: inline-block; padding: .16666em; margin-left: -.16666em; text-decoration: none; }
+
+a i,
+.note-trigger i {
   position: relative;
-  border-bottom: 1px solid #d8d5d2;  
-  }  /* light default line */
-a i::after {
+  border-bottom: 1px solid #d8d5d2;   /* light default line */
+}
+a i::after,
+.note-trigger i::after {
   content: "";
   position: absolute;
   left: 0;
@@ -55,7 +58,8 @@ a i::after {
   transform-origin: left;              /* grow FROM the left */
   transition: transform 0.25s ease;    /* the left-to-right draw */
 }
-a:hover i::after { transform: scaleX(1); }
+a:hover i::after,
+.note-trigger:hover i::after { transform: scaleX(1); }
 
 /* ============================================================
    VERTICAL RHYTHM
@@ -117,10 +121,44 @@ footer a { margin-right: 0.75em; }
 /* ============================================================
    INFO / CV PAGE
    ============================================================ */
-.label    { color: #9e9d9c; margin-top: var(--lh); }
-.cv       { list-style: none; }
-.cv li    { padding: 0.4em 0; }
-.cv .when { display: block; color: #9e9d9c; }   /* dates, muted */
+.label {
+  color: #9e9d9c;
+  font-size: 0.92em;                  /* smaller, like the breadcrumb */
+  border-top: 1px solid #e2dfdc;
+  margin-top: calc(var(--lh) * 1.5);
+  padding-top: var(--lh);
+  margin-bottom: 0.4em;
+}
+
+.cv { list-style: none; }
+
+.cv li {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  padding: 0.4em 0;
+}
+
+.cv .logo {
+  flex: 0 0 auto;
+  width: 1.6em;
+  height: 1.6em;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cv .entry {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75em;
+}
+
+.cv .when {
+  margin-left: auto;
+  color: #9e9d9c;
+  white-space: nowrap;
+}
 
 /* ============================================================
    BLOG POSTS
@@ -156,24 +194,17 @@ blockquote {
 .up:hover  { color: #9e9d9c; }
 
 /* ============================================================
-   RESPONSIVE — phones
+   BADGE (inline logo chip)
    ============================================================ */
-@media (max-width: 600px) {
-  body   { padding-top: 2em; justify-content: start; }
-  footer { padding-bottom: 2em; }
-  a i    { border-color: #888; }
-}
-
-
 .badge {
   display: inline-flex;        /* auto-layout frame */
   align-items: center;         /* center the logo vertically */
   justify-content: center;     /* center it horizontally */
   width: 1.2em;
   height: 1.2em;               /* equal = square footprint */
-  padding: 0.2em;             /* space between edge and logo */
+  padding: 0.2em;              /* space between edge and logo */
   background: #393939;
-  border-radius: 4px;          /* ← 4px = rounded square · 50% = circle · 0 = sharp square */
+  border-radius: 4px;          /* 4px = rounded square · 50% = circle · 0 = sharp square */
   vertical-align: middle;      /* sit it nicely on the text line */
   margin: -0.3em 0.35em;
 }
@@ -181,14 +212,15 @@ blockquote {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: invert(1); 
+  filter: invert(1);
 }
 
 .bio { text-wrap: balance; }
 .bio a { padding-top: 0; padding-bottom: 0; }
 
-
-/* items rise up and fade in, one after another, on load */
+/* ============================================================
+   LOAD ANIMATION — items rise up and fade in, one after another
+   ============================================================ */
 @keyframes rise {
   from { opacity: 0; transform: translateY(0.6em); }
   to   { opacity: 1; transform: translateY(0); }
@@ -213,4 +245,102 @@ footer { animation-delay: 0.30s; }
 /* respect people who turn off motion */
 @media (prefers-reduced-motion: reduce) {
   main > *, footer { animation: none; }
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.crumb {
+  font-size: 0.92em;          /* smaller than body text */
+  margin-bottom: var(--lh);
+  display: flex;
+  align-items: center;
+  gap: 0.4em;                 /* space around the separators */
+}
+.crumb a       { color: #9e9d9c; text-decoration: none; }  /* muted links */
+.crumb a:hover { color: #16130f; }                         /* darken on hover */
+.crumb .here   { color: #797775; }                         /* current page, a bit stronger */
+.crumb .sep    { color: #c8c6c4; }                         /* faint separator */
+
+.crumb img {
+  height: 0.9em;          /* small — matches the crumb text */
+  width: auto;            /* keep its proportions */
+  vertical-align: middle;
+}
+
+/* ============================================================
+   AWARD-WINNING SIDENOTE
+   ============================================================ */
+.has-note { position: relative; }   /* anchor for the note */
+
+.note-trigger {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.note-trigger sup {
+  font-size: 0.7em;
+  margin-left: 0.1em;
+  color: #9e9d9c;   /* muted, like your dim text */
+}
+
+.sidenote {
+  position: absolute;
+  left: 100%;                 /* just past the right edge of your text */
+  top: 0;
+  margin-left: 1.5rem;
+  width: 12rem;
+  font-size: 0.92em;          /* matches breadcrumb + Experience label */
+  color: #797775;
+  border-left: 2px solid #e2dfdc;
+  padding-left: 1em;
+}
+.sidenote[hidden] { display: none; }   /* hidden until clicked */
+
+.note-list { list-style: none; margin: 0.4em 0 0; }
+
+.note-list li {
+  display: flex;
+  align-items: flex-start;   /* was center */
+  gap: 0.5em;
+  padding: 0.2em 0;
+}
+
+
+.award-logo {
+  flex: 0 0 auto;
+  width: 1.2em;
+  height: 1.2em;
+  object-fit: cover;
+  border-radius: 3px;
+  margin-top: 0.35em;
+}
+
+
+/* ============================================================
+   RESPONSIVE — phones
+   ============================================================ */
+@media (max-width: 600px) {
+  body   { padding-top: 2em; justify-content: start; }
+  footer { padding-bottom: 2em; }
+  a i,
+  .note-trigger i { border-color: #888; }
+
+  .cv li     { align-items: flex-start; }
+  .cv .entry { flex-direction: column; gap: 0.1em; }
+  .cv .when  { margin-left: 0; }
+}
+
+/* narrow screens: drop the sidenote below the paragraph */
+@media (max-width: 1000px) {
+  .sidenote {
+    position: static;
+    left: auto;
+    margin-left: 0;
+    width: auto;
+    margin-top: var(--lh);
+  }
 }

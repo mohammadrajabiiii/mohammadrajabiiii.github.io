@@ -49,7 +49,15 @@ function blip({ freq = 1800, dur = 0.03, vol = 0.4, q = 0.8 } = {}) {
   noise.start(now);
   noise.stop(now + dur);
 }
-document.querySelectorAll('a').forEach(function (a) {
+document.querySelectorAll('a, .note-trigger').forEach(function (a) {
   a.addEventListener('mouseenter', function () { blip({ freq: 2200, dur: 0.02, vol: 0.12 }); });
   a.addEventListener('click',      function () { blip({ freq: 1500, dur: 0.04, vol: 0.25 }); });
+});
+
+// award-winning sidenote toggle
+document.querySelectorAll('.note-trigger').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const note = document.getElementById(btn.getAttribute('aria-controls'));
+    if (note) note.hidden = !note.hidden;
+  });
 });
