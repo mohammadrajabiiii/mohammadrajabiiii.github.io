@@ -187,3 +187,30 @@ blockquote {
 .bio { text-wrap: balance; }
 .bio a { padding-top: 0; padding-bottom: 0; }
 
+
+/* items rise up and fade in, one after another, on load */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.6em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+main > *,
+footer {
+  animation: rise 0.5s ease both;
+}
+
+/* stagger: each item starts a beat after the previous */
+main > *:nth-child(1) { animation-delay: 0.00s; }
+main > *:nth-child(2) { animation-delay: 0.06s; }
+main > *:nth-child(3) { animation-delay: 0.12s; }
+main > *:nth-child(4) { animation-delay: 0.18s; }
+main > *:nth-child(5) { animation-delay: 0.24s; }
+main > *:nth-child(6) { animation-delay: 0.30s; }
+main > *:nth-child(7) { animation-delay: 0.36s; }
+main > *:nth-child(8) { animation-delay: 0.42s; }
+footer { animation-delay: 0.30s; }
+
+/* respect people who turn off motion */
+@media (prefers-reduced-motion: reduce) {
+  main > *, footer { animation: none; }
+}
