@@ -61,3 +61,11 @@ document.querySelectorAll('.note-trigger').forEach(function (btn) {
     if (note) note.hidden = !note.hidden;
   });
 });
+
+// stagger the load animation, line by line, for any number of items
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('main > *, footer').forEach(function (el, i) {
+    el.style.animationDelay = (i * 0.06) + 's';
+  });
+}
+

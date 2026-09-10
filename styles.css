@@ -180,11 +180,12 @@ blockquote {
   color: rgba(22, 19, 15, 0.65);
 }
 
-.post-img {
+.post-img,
+.post-video {
   display: block;
   width: 100%;
   height: auto;
-  image-rendering: pixelated;   /* keeps dithered dots crisp */
+  border-radius: 6px;      /* rounded corners */
   margin: var(--lh) 0;
 }
 
@@ -231,15 +232,6 @@ footer {
   animation: rise 0.5s ease both;
 }
 
-/* stagger: each item starts a beat after the previous */
-main > *:nth-child(1) { animation-delay: 0.00s; }
-main > *:nth-child(2) { animation-delay: 0.06s; }
-main > *:nth-child(3) { animation-delay: 0.12s; }
-main > *:nth-child(4) { animation-delay: 0.18s; }
-main > *:nth-child(5) { animation-delay: 0.24s; }
-main > *:nth-child(6) { animation-delay: 0.30s; }
-main > *:nth-child(7) { animation-delay: 0.36s; }
-main > *:nth-child(8) { animation-delay: 0.42s; }
 footer { animation-delay: 0.30s; }
 
 /* respect people who turn off motion */
@@ -332,6 +324,20 @@ footer { animation-delay: 0.30s; }
   .cv li     { align-items: flex-start; }
   .cv .entry { flex-direction: column; gap: 0.1em; }
   .cv .when  { margin-left: 0; }
+
+   .post-list li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+    .notes a {
+    display: inline-block;
+    max-width: calc(100% - 3em);   /* leaves room for the "05." number */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;        /* keeps it level with the number */
+  }
 }
 
 /* narrow screens: drop the sidenote below the paragraph */
@@ -343,5 +349,54 @@ footer { animation-delay: 0.30s; }
     width: auto;
     margin-top: var(--lh);
     margin-bottom: var(--lh);
+  }
+}
+
+
+.callout {
+  background: #ececec;
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  margin: var(--lh) 0;
+}
+/* keep the box padding even no matter what's inside */
+.callout > :first-child { margin-top: 0; }
+.callout > :last-child  { margin-bottom: 0; }
+
+.dots {
+  display: flex;
+  justify-content: center;            /* center the row */
+  gap: 0.6em;                         /* ← spacing between dots */
+  margin: calc(var(--lh) * 2) 0;      /* space above/below the divider */
+}
+.dots span {
+  width: 5px;                         /* ← dot size */
+  height: 5px;
+  border-radius: 50%;                 /* makes each a circle */
+  background: #c8c6c4;                /* dot color (your faint separator tone) */
+}
+
+.it { font-style: italic; }
+
+.margin-note {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-left: 1.5rem;
+  width: 12rem;
+  font-size: 0.92em;
+  color: #9e9d9c;          /* muted, like a footnote */
+}
+
+@media (max-width: 1000px) {
+  .margin-note {
+    position: static;
+    left: auto;
+    margin-left: 0;
+    width: auto;
+    margin-top: var(--lh);
+    margin-bottom: var(--lh);
+    padding-left: 1em;
+    border-left: 2px solid #e2dfdc;   /* little bar when it drops inline */
   }
 }
