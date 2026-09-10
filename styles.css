@@ -336,16 +336,19 @@ footer { animation-delay: 0.30s; }
   }
 
   .crumb {
-  flex-wrap: nowrap;          /* keep the trail on one line */
-}
-.crumb .here {
-  min-width: 0;               /* lets the flex item shrink... */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;        /* ...and truncate instead of wrapping */
+    flex-wrap: nowrap;
+    overflow: hidden;        /* clip anything that would spill */
+  }
+  .crumb .here {
+    flex: 1;                 /* take the leftover space... */
+    min-width: 0;            /* ...and be allowed to shrink below content */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
-}
+
 
 /* narrow screens: drop the sidenote below the paragraph */
 @media (max-width: 1000px) {
