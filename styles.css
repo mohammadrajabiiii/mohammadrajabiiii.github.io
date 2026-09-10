@@ -39,9 +39,23 @@ body {
    LINKS
    ============================================================ */
 a         { display: inline-block; padding: .16666em; margin-left: -.16666em; text-decoration: none; }
-a i       { border-bottom: 1px dotted; }   /* dotted underline */
-a:hover i { border-bottom-style: solid; }  /* solid on hover */
-a:active i { border: none; }               /* gone on click */
+a i {
+  position: relative;
+  border-bottom: 1px solid #d8d5d2;  
+  }  /* light default line */
+a i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;                        /* sits right over the light line */
+  width: 100%;
+  height: 1px;
+  background: currentColor;            /* text-colored line */
+  transform: scaleX(0);                /* hidden: zero width */
+  transform-origin: left;              /* grow FROM the left */
+  transition: transform 0.25s ease;    /* the left-to-right draw */
+}
+a:hover i::after { transform: scaleX(1); }
 
 /* ============================================================
    VERTICAL RHYTHM
