@@ -325,11 +325,7 @@ footer { animation-delay: 0.30s; }
   .cv .entry { flex-direction: column; gap: 0.1em; }
   .cv .when  { margin-left: 0; }
 
-   .post-list li {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+
     .notes a {
     display: inline-block;
     max-width: calc(100% - 3em);   /* leaves room for the "05." number */
@@ -338,6 +334,17 @@ footer { animation-delay: 0.30s; }
     white-space: nowrap;
     vertical-align: bottom;        /* keeps it level with the number */
   }
+
+  .crumb {
+  flex-wrap: nowrap;          /* keep the trail on one line */
+}
+.crumb .here {
+  min-width: 0;               /* lets the flex item shrink... */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;        /* ...and truncate instead of wrapping */
+}
+
 }
 
 /* narrow screens: drop the sidenote below the paragraph */
