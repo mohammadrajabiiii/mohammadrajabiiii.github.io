@@ -456,7 +456,7 @@ footer { animation-delay: 0.30s; }
 .shelf a:hover .cap { color: #16130f; }
 
 @media (max-width: 600px) {
-  .shelf { grid-template-columns: repeat(2, 1fr); }
+  .shelf { grid-template-columns: repeat(4, 1fr); }
 }
 
 
