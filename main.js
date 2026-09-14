@@ -29,8 +29,10 @@ function ensureAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   if (audioCtx.state === 'suspended') audioCtx.resume();
 }
-window.addEventListener('pointerdown', ensureAudio, { once: true });
-window.addEventListener('keydown', ensureAudio, { once: true });
+['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(function (evt) {
+  window.addEventListener(evt, ensureAudio, { once: true, passive: true });
+});
+
 
 function blip({ freq = 1800, dur = 0.03, vol = 0.4, q = 0.8 } = {}) {
   if (!audioCtx || audioCtx.state !== 'running') return;
