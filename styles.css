@@ -27,7 +27,7 @@ html {
 body {
   font: 0.85em/var(--lh) "Geist", sans-serif;
   color: #797775;      /* LEVEL 2 · default text */
-  background: #f2f2f2;
+  background: var(--bg, #f2f2f2);
   padding: 12vh 2em 0;                 /* top gap · sides · bottom */
   display: grid;
   grid: 1fr / minmax(auto, 30rem);     /* single centered column, max 30rem */
@@ -238,6 +238,20 @@ blockquote {
   from { opacity: 0; transform: translateY(0.6em); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.notes            { animation: none; }                 /* container no longer fades as one lump */
+.notes > *        { animation: rise 0.5s ease both; }  /* each row rises on its own */
+
+
+@keyframes reveal {
+  from { clip-path: inset(0 0 100% 0 round 6px); }  /* bottom clipped away → only top sliver */
+  to   { clip-path: inset(0 0 0 0 round 6px); }     /* fully shown */
+}
+
+.post-img,
+.post-video {
+  animation: reveal 0.8s ease both;
+}
+
 
 main > *,
 footer {
@@ -249,6 +263,8 @@ footer { animation-delay: 0.30s; }
 /* respect people who turn off motion */
 @media (prefers-reduced-motion: reduce) {
   main > *, footer { animation: none; }
+  .post-img, .post-video { animation: none; } 
+  .notes > *       { animation: none; } 
 }
 
 /* ============================================================

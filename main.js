@@ -66,7 +66,7 @@ document.querySelectorAll('.note-trigger').forEach(function (btn) {
 
 // stagger the load animation, line by line, for any number of items
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('main > *, footer').forEach(function (el, i) {
+  document.querySelectorAll('main > *, .notes > *, footer').forEach(function (el, i) {
     el.style.animationDelay = (i * 0.06) + 's';
   });
 }
