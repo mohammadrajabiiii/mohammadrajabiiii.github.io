@@ -85,7 +85,8 @@ document.querySelectorAll('.voice').forEach(function (v) {
   var time  = v.querySelector('.voice-time');
 
   // build a stable waveform (same shape every load, no random jitter)
-  var BARS = 50, bars = [];
+  var BARS = window.innerWidth < 600 ? 30 : 50;   // 22 on phones, 40 on desktop
+  var bars = [];   
   for (var i = 0; i < BARS; i++) {
     var b = document.createElement('span');
     var h = 0.25 + Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.6)) * 0.75;  // 25%–100%
