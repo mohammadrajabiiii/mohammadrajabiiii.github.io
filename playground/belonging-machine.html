@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>The Belonging Machine — Mohammad Rajabi</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🫂</text></svg>">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <main>
+        <header class="crumb">
+            <a href="../index.html"><i>Home</i></a>
+            <img class="sep" src="../images/arrow_forward_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="›">
+            <a href="../playground.html"><i>Playground</i></a>
+            <img class="sep" src="../images/arrow_forward_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="›">
+            <span class="here">The Belonging Machine</span>
+        </header>
+
+        <h1 class="post-title">The Belonging Machine</h1>
+
+        <!-- HERO: the film -->
+        <div class="vid">
+            <video src="/videos/bm-720.mp4" poster="/images/playground/belonging.jpeg" playsinline
+                preload="metadata"></video>
+            <button class="vid-btn" aria-label="Play">
+                <img class="i-play" src="/images/playw.svg" alt="">
+                <img class="i-pause" src="/images/pausew.svg" alt="">
+            </button>
+            <div class="vid-tools">
+                <button class="vid-wide" aria-label="Widen">Wide</button>
+            </div>
+        </div>
+
+        <!-- WHAT IT IS -->
+        <p class="hi">This is an interactive experiment about closeness.</p>
+
+        <p>A word/object appears on a tiny, nostalgic Nokia screen; as you reach toward it, it begins to fall apart. The
+            closer you get, the less of it remains. The word displayed on the LCD is <span class="hl">تعلق</span>, which
+            means belonging in Farsi.</p>
+        <p>I always thought about the strange relationship between feeling that you belong to something, wanting
+            something very badly, and getting too close to it. We usually think proximity creates intimacy. But
+            sometimes (I would like to say most of the time), the opposite happens — the closer we get, the more fragile
+            things, people, and places become.</p>
+
+        <div class="dots"><span></span><span></span><span></span></div>
+
+
+        <div class="duo">
+            <img src="/images/playground/meonnokia.jpg" alt="Me on Nokia">
+            <img src="/images/playground/nokialcd.jpg" alt="Nokia LCD">
+        </div>
+
+        <p>A few months ago, I had made <a href="https://www.instagram.com/reel/DZVzDBUtm8V/?stkn=YjNxeDBjY294d2Uw"
+                target="_blank" rel="noopener" alt="The project on ig"><i>this project</i></a> using p5.js where, by
+            moving the hand close to the camera, I scattered text that I was then projecting onto the wall. Finding out
+            about electronic components and tiny screens (I love tiny things) got me wondering about rebuilding that
+            idea and making a live machine out of it. Something that did not need a webcam, machine learning, or
+            complexity. As transparent as it can be. Using a distance sensor that feels the closeness instead of
+            computer vision.</p>
+
+        <div class="dots"><span></span><span></span><span></span></div>
+
+        <p>The word does not disappear because you leave it alone. It disappears because you approach it. Consciously
+            and unconsciously. There is something uncomfortable about that. The act of reaching toward something (that
+            you want — or think you belong to) can also be the thing that destroys it.</p>
+
+        <div class="has-note">
+            <div class="vid">
+                <video src="/videos/belonging-02.mp4" playsinline preload="metadata"></video>
+                <button class="vid-btn" aria-label="Play">
+                    <img class="i-play" src="/images/playw.svg" alt="">
+                    <img class="i-pause" src="/images/pausew.svg" alt="">
+                </button>
+            </div>
+            <aside class="margin-note">
+                <p>I love the fact that the machine reacts to its environment. I was cleaning the desk to start filming
+                    the
+                    project. Yet, the machine was doing its job as a creator in the room, living on my desk.</p>
+                <img class="note-cover" src="/images/playground/igcover.jpg" alt="The Belonging Machine on Instagram">
+                <a href="https://www.instagram.com/reel/Dcl04_cN4zi/?stkn=MW54aHBpamR1bXdqZA==" target="_blank"
+                    rel="noopener"><i>See on Instagram</i></a><img class="ico"
+                    src="/images/arrow_outward_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+            </aside>
+        </div>
+
+        <div class="dots"><span></span><span></span><span></span></div>
+
+        <p>I don’t know if belonging is something we find, or something we keep trying to reach. Maybe some things
+            only
+            remain whole at a certain distance.</p>
+        <p>It was very interesting to me that a lot of people found this interesting when I shared it on my
+            Instagram.
+            People from different backgrounds — engineers, artists, designers, and people who have nothing to do
+            with
+            any of these and are living a normal life.</p>
+        <p class="callout">Big shout out to Amir Mahdi — my little brother — for taking me by the hand into the world of electronics.</p>
+
+        <p class="label">Made with</p>
+        <ul class="made-list">
+            <li>Arduino Nano</li>
+            <li>Nokia 5110 LCD</li>
+            <li>APDS9960</li>
+            <li>Buzzer</li>
+        </ul>
+
+    </main>
+
+    <footer>
+        <p class="post-date">28 August 2026</p>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

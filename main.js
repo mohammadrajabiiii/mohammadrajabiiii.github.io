@@ -5,11 +5,11 @@
     if (!iso) return;
     var then = new Date(iso);
     var days = Math.floor((Date.now() - then) / 86400000);
-    if (days < 1)        el.textContent = 'today';
-    else if (days < 7)   el.textContent = days + (days === 1 ? ' day ago' : ' days ago');
-    else if (days < 30)  { var w = Math.floor(days / 7);   el.textContent = w + (w === 1 ? ' week ago'  : ' weeks ago'); }
-    else if (days < 365) { var m = Math.floor(days / 30);  el.textContent = m + (m === 1 ? ' month ago' : ' months ago'); }
-    else                 { var y = Math.floor(days / 365); el.textContent = y + (y === 1 ? ' year ago'  : ' years ago'); }
+    if (days < 1) el.textContent = 'today';
+    else if (days < 7) el.textContent = days + (days === 1 ? ' day ago' : ' days ago');
+    else if (days < 30) { var w = Math.floor(days / 7); el.textContent = w + (w === 1 ? ' week ago' : ' weeks ago'); }
+    else if (days < 365) { var m = Math.floor(days / 30); el.textContent = m + (m === 1 ? ' month ago' : ' months ago'); }
+    else { var y = Math.floor(days / 365); el.textContent = y + (y === 1 ? ' year ago' : ' years ago'); }
   });
 })();
 
@@ -56,7 +56,7 @@ function blip({ freq = 1800, dur = 0.03, vol = 0.4, q = 0.8 } = {}) {
 }
 document.querySelectorAll('a, .note-trigger').forEach(function (a) {
   a.addEventListener('mouseenter', function () { blip({ freq: 2200, dur: 0.02, vol: 0.12 }); });
-  a.addEventListener('click',      function () { blip({ freq: 1500, dur: 0.04, vol: 0.25 }); });
+  a.addEventListener('click', function () { blip({ freq: 1500, dur: 0.04, vol: 0.25 }); });
 });
 
 // award-winning sidenote toggle
@@ -80,13 +80,13 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 // voice narration player with decorative waveform
 document.querySelectorAll('.voice').forEach(function (v) {
   var audio = v.querySelector('.voice-audio');
-  var btn   = v.querySelector('.voice-play');
-  var wave  = v.querySelector('.voice-wave');
-  var time  = v.querySelector('.voice-time');
+  var btn = v.querySelector('.voice-play');
+  var wave = v.querySelector('.voice-wave');
+  var time = v.querySelector('.voice-time');
 
   // build a stable waveform (same shape every load, no random jitter)
   var BARS = window.innerWidth < 600 ? 30 : 50;   // 22 on phones, 40 on desktop
-  var bars = [];   
+  var bars = [];
   for (var i = 0; i < BARS; i++) {
     var b = document.createElement('span');
     var h = 0.25 + Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.6)) * 0.75;  // 25%–100%
@@ -106,12 +106,12 @@ document.querySelectorAll('.voice').forEach(function (v) {
   });
 
   btn.addEventListener('click', function () {
-    if (audio.paused) { audio.play();  v.classList.add('playing'); }
-    else              { audio.pause(); v.classList.remove('playing'); }
+    if (audio.paused) { audio.play(); v.classList.add('playing'); }
+    else { audio.pause(); v.classList.remove('playing'); }
   });
 
   audio.addEventListener('timeupdate', function () {
-    var ratio  = audio.currentTime / audio.duration || 0;
+    var ratio = audio.currentTime / audio.duration || 0;
     var played = Math.round(ratio * bars.length);
     bars.forEach(function (b, i) { b.classList.toggle('played', i < played); });
     time.textContent = fmt(audio.currentTime) + ' - ' + fmt(audio.duration);  // "00:14 - 02:23"
@@ -129,17 +129,48 @@ document.querySelectorAll('.voice').forEach(function (v) {
   });
 
   // horizontal-only hover line
-var cursor = document.createElement('div');
-cursor.className = 'voice-cursor';
-wave.appendChild(cursor);
+  var cursor = document.createElement('div');
+  cursor.className = 'voice-cursor';
+  wave.appendChild(cursor);
 
-wave.addEventListener('mousemove', function (e) {
-  var rect = wave.getBoundingClientRect();
-  cursor.style.left = (e.clientX - rect.left) + 'px';   // X only
-  cursor.style.opacity = '1';
+  wave.addEventListener('mousemove', function (e) {
+    var rect = wave.getBoundingClientRect();
+    cursor.style.left = (e.clientX - rect.left) + 'px';   // X only
+    cursor.style.opacity = '1';
+  });
+  wave.addEventListener('mouseleave', function () {
+    cursor.style.opacity = '0';
+  });
+
 });
-wave.addEventListener('mouseleave', function () {
-  cursor.style.opacity = '0';
-});
+
+
+// poster + click-to-play videos with hover-pause
+document.querySelectorAll('.vid').forEach(function (box) {
+  var video = box.querySelector('video');
+  var btn = box.querySelector('.vid-btn');
+
+  function toggle() {
+    if (video.paused) { video.play(); box.classList.add('playing'); btn.setAttribute('aria-label', 'Pause'); }
+    else { video.pause(); box.classList.remove('playing'); btn.setAttribute('aria-label', 'Play'); }
+  }
+
+  btn.addEventListener('click', toggle);
+  video.addEventListener('click', toggle);          // clicking the video works too
+  video.addEventListener('ended', function () {
+    box.classList.remove('playing');
+    btn.setAttribute('aria-label', 'Play');
+  });
+
+
+  var wideBtn = box.querySelector('.vid-wide');
+  if (wideBtn) {
+    wideBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      box.classList.toggle('wide');
+      wideBtn.textContent = box.classList.contains('wide') ? 'Small' : 'Wide';
+    });
+  }
+
 
 });

@@ -1,14 +1,28 @@
 /* ============================================================
    BASE
    ============================================================ */
-* { margin: 0; padding: 0; font: inherit; color: inherit; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  box-sizing: border-box;
+}
 
-:root { --lh: 1.5em; }   /* spacing unit: line-height AND the gap between blocks */
+:root {
+  --lh: 1.5em;
+}
 
-::selection { background: #ddd; color: #000; }
+/* spacing unit: line-height AND the gap between blocks */
+
+::selection {
+  background: #ddd;
+  color: #000;
+}
 
 html {
-  margin: 0 0 0 calc(100vw - 100%);   /* stops the page shifting when a scrollbar appears */
+  margin: 0 0 0 calc(100vw - 100%);
+  /* stops the page shifting when a scrollbar appears */
   -webkit-text-size-adjust: 100%;
   height: 100%;
 }
@@ -17,8 +31,16 @@ html {
    COLOR — one ink, three opacities (like Figma opacity %)
    ink = rgb(22, 19, 15) · last number is opacity (0–1)
    ============================================================ */
-.hi  { color: #16130f; }   /* LEVEL 1 · highlight */
-.dim { color: #9e9d9c; }   /* LEVEL 3 · muted */
+.hi {
+  color: #16130f;
+}
+
+/* LEVEL 1 · highlight */
+.dim {
+  color: #9e9d9c;
+}
+
+/* LEVEL 3 · muted */
 /* LEVEL 2 (default) lives on body below */
 
 /* ============================================================
@@ -26,11 +48,14 @@ html {
    ============================================================ */
 body {
   font: 0.85em/var(--lh) "Geist", sans-serif;
-  color: #797775;      /* LEVEL 2 · default text */
+  color: #797775;
+  /* LEVEL 2 · default text */
   background: var(--bg, #f2f2f2);
-  padding: 12vh 2em 0;                 /* top gap · sides · bottom */
+  padding: 12vh 2em 0;
+  /* top gap · sides · bottom */
   display: grid;
-  grid: 1fr / minmax(auto, 30rem);     /* single centered column, max 30rem */
+  grid: 1fr / minmax(auto, 30rem);
+  /* single centered column, max 30rem */
   justify-content: center;
   height: 100%;
 }
@@ -38,49 +63,91 @@ body {
 /* ============================================================
    LINKS
    ============================================================ */
-a { display: inline-block; padding: .16666em; margin-left: -.16666em; text-decoration: none; }
+a {
+  display: inline-block;
+  padding: .16666em;
+  margin-left: -.16666em;
+  text-decoration: none;
+}
 
 a i,
 .note-trigger i {
   position: relative;
-  border-bottom: 1px solid #d8d5d2;   /* light default line */
+  border-bottom: 1px solid #d8d5d2;
+  /* light default line */
 }
+
 a i::after,
 .note-trigger i::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -1px;                        /* sits right over the light line */
+  bottom: -1px;
+  /* sits right over the light line */
   width: 100%;
   height: 1px;
-  background: currentColor;            /* text-colored line */
-  transform: scaleX(0);                /* hidden: zero width */
-  transform-origin: left;              /* grow FROM the left */
-  transition: transform 0.25s ease;    /* the left-to-right draw */
+  background: currentColor;
+  /* text-colored line */
+  transform: scaleX(0);
+  /* hidden: zero width */
+  transform-origin: left;
+  /* grow FROM the left */
+  transition: transform 0.25s ease;
+  /* the left-to-right draw */
 }
+
 a:hover i::after,
-.note-trigger:hover i::after { transform: scaleX(1); }
+.note-trigger:hover i::after {
+  transform: scaleX(1);
+}
 
 /* ============================================================
    VERTICAL RHYTHM
    default: one line of space below each block.
    to change ONE gap, give that element its own margin-bottom.
    ============================================================ */
-h1, p, nav { margin-bottom: var(--lh); }
-nav        { margin-top: -.16666em; }
+h1,
+p,
+nav {
+  margin-bottom: var(--lh);
+}
+
+nav {
+  margin-top: -.16666em;
+}
 
 /* ============================================================
    FOOTER
    ============================================================ */
-footer   { padding: calc(var(--lh) * 2) 0 8vh; }
-footer p { margin: 0; display: flex; align-items: baseline; }
-footer a { margin-right: 0.75em; }
-.year    { opacity: 0.4; margin-left: auto; }   /* pushed to the far right */
+footer {
+  padding: calc(var(--lh) * 2) 0 8vh;
+}
+
+footer p {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+}
+
+footer a {
+  margin-right: 0.75em;
+}
+
+.year {
+  opacity: 0.4;
+  margin-left: auto;
+}
+
+/* pushed to the far right */
 
 /* ============================================================
    HOMEPAGE
    ============================================================ */
-.home       { display: flex; flex-direction: column; }
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
 .home .menu {
   display: flex;
   gap: 1em;
@@ -91,7 +158,8 @@ footer a { margin-right: 0.75em; }
   height: auto;
   display: block;
   margin-bottom: calc(var(--lh) + 0.5em);
-  border-radius: 4px;      /* 50% = circle, 0 = square */
+  border-radius: 4px;
+  /* 50% = circle, 0 = square */
 }
 
 /* ============================================================
@@ -104,8 +172,15 @@ footer a { margin-right: 0.75em; }
   border: 1px solid #ddd;
   margin-bottom: var(--lh);
 }
-.status .ago { color: #9e9d9c; }   /* muted timestamp */
-.status p    { margin: 0.3em 0 0; }
+
+.status .ago {
+  color: #9e9d9c;
+}
+
+/* muted timestamp */
+.status p {
+  margin: 0.3em 0 0;
+}
 
 .ico {
   height: 1em;
@@ -114,29 +189,46 @@ footer a { margin-right: 0.75em; }
   margin: 0 0.25em;
 }
 
-.mark { font-size: 1.6em; vertical-align: -0.15em; }   /* oversized inline symbol */
+.mark {
+  font-size: 1.6em;
+  vertical-align: -0.15em;
+}
 
-.duck { display: block; width: 52px; height: auto; margin: var(--lh) 0 0.4em; }
+/* oversized inline symbol */
+
+.duck {
+  display: block;
+  width: 52px;
+  height: auto;
+  margin: var(--lh) 0 0.4em;
+}
 
 /* ============================================================
    INFO / CV PAGE
    ============================================================ */
 .label {
   color: #9e9d9c;
-  font-size: 0.92em;                  /* smaller, like the breadcrumb */
+  font-size: 0.92em;
+  /* smaller, like the breadcrumb */
   border-top: 1px solid #e2dfdc;
   margin-top: calc(var(--lh) * 1.5);
   padding-top: var(--lh);
   margin-bottom: 0.4em;
 }
 
-.label + .post-list { margin-top: 0; }
+.label+.post-list {
+  margin-top: 0;
+}
 
-.label + * { margin-top: 0; }
+.label+* {
+  margin-top: 0;
+}
 
 
 
-.cv { list-style: none; }
+.cv {
+  list-style: none;
+}
 
 .cv li {
   display: flex;
@@ -169,21 +261,45 @@ footer a { margin-right: 0.75em; }
 /* ============================================================
    BLOG POSTS
    ============================================================ */
-.post-date  { color: #9e9d9c; margin-bottom: var(--lh); }
-.post-sub   { color: #9e9d9c; margin-bottom: var(--lh); }
-.post-title {
-  font-size: 1.3em;
-  font-weight: 400;        /* regular, same as body */
-  line-height: 1.2;
-  color: #16130f;          /* your highlight ink */
+.post-date {
+  color: #9e9d9c;
   margin-bottom: var(--lh);
 }
-.post-title .up { font-weight: 400; }   /* keep breadcrumb light */
 
-h2 { font-weight: 700; margin: calc(var(--lh) * 1.5) 0 var(--lh); }
+.post-sub {
+  color: #9e9d9c;
+  margin-bottom: var(--lh);
+}
 
-.post-list    { padding-left: 1.2em; margin: var(--lh) 0; }
-.post-list li { margin: 0.35em 0; }
+.post-title {
+  font-size: 1.3em;
+  font-weight: 400;
+  /* regular, same as body */
+  line-height: 1.2;
+  color: #16130f;
+  /* your highlight ink */
+  margin-bottom: var(--lh);
+}
+
+.post-title .up {
+  font-weight: 400;
+}
+
+/* keep breadcrumb light */
+
+h2 {
+  font-weight: 700;
+  margin: calc(var(--lh) * 1.5) 0 var(--lh);
+}
+
+.post-list {
+  padding-left: 1.2em;
+  margin: var(--lh) 0;
+}
+
+.post-list li {
+  margin: 0.35em 0;
+}
 
 blockquote {
   margin: var(--lh) 0;
@@ -197,30 +313,47 @@ blockquote {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 6px;      /* rounded corners */
+  border-radius: 6px;
+  /* rounded corners */
   margin: var(--lh) 0;
 }
 
 /* breadcrumb up-link */
-.up        { color: #9e9d9c; }
-.up .slash { color: #9e9d9c; }
-.up:hover  { color: #9e9d9c; }
+.up {
+  color: #9e9d9c;
+}
+
+.up .slash {
+  color: #9e9d9c;
+}
+
+.up:hover {
+  color: #9e9d9c;
+}
 
 /* ============================================================
    BADGE (inline logo chip)
    ============================================================ */
 .badge {
-  display: inline-flex;        /* auto-layout frame */
-  align-items: center;         /* center the logo vertically */
-  justify-content: center;     /* center it horizontally */
+  display: inline-flex;
+  /* auto-layout frame */
+  align-items: center;
+  /* center the logo vertically */
+  justify-content: center;
+  /* center it horizontally */
   width: 1.2em;
-  height: 1.2em;               /* equal = square footprint */
-  padding: 0.2em;              /* space between edge and logo */
+  height: 1.2em;
+  /* equal = square footprint */
+  padding: 0.2em;
+  /* space between edge and logo */
   background: #393939;
-  border-radius: 4px;          /* 4px = rounded square · 50% = circle · 0 = sharp square */
-  vertical-align: middle;      /* sit it nicely on the text line */
+  border-radius: 4px;
+  /* 4px = rounded square · 50% = circle · 0 = sharp square */
+  vertical-align: middle;
+  /* sit it nicely on the text line */
   margin: -0.3em 0.35em;
 }
+
 .badge img {
   width: 100%;
   height: 100%;
@@ -228,23 +361,53 @@ blockquote {
   filter: invert(1);
 }
 
-.bio { text-wrap: balance; }
-.bio a { padding-top: 0; padding-bottom: 0; }
+.bio {
+  text-wrap: balance;
+}
+
+.bio a {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
 /* ============================================================
    LOAD ANIMATION — items rise up and fade in, one after another
    ============================================================ */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(0.6em); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.notes            { animation: none; }                 /* container no longer fades as one lump */
-.notes > *        { animation: rise 0.5s ease both; }  /* each row rises on its own */
+
+.notes {
+  animation: none;
+}
+
+/* container no longer fades as one lump */
+.notes>* {
+  animation: rise 0.5s ease both;
+}
+
+/* each row rises on its own */
 
 
 @keyframes reveal {
-  from { clip-path: inset(0 0 100% 0 round 6px); }  /* bottom clipped away → only top sliver */
-  to   { clip-path: inset(0 0 0 0 round 6px); }     /* fully shown */
+  from {
+    clip-path: inset(0 0 100% 0 round 6px);
+  }
+
+  /* bottom clipped away → only top sliver */
+  to {
+    clip-path: inset(0 0 0 0 round 6px);
+  }
+
+  /* fully shown */
 }
 
 .post-img,
@@ -253,45 +416,84 @@ blockquote {
 }
 
 
-main > *,
+main>*,
 footer {
   animation: rise 0.5s ease both;
 }
 
-footer { animation-delay: 0.30s; }
+footer {
+  animation-delay: 0.30s;
+}
 
 /* respect people who turn off motion */
 @media (prefers-reduced-motion: reduce) {
-  main > *, footer { animation: none; }
-  .post-img, .post-video { animation: none; } 
-  .notes > *       { animation: none; } 
+
+  main>*,
+  footer {
+    animation: none;
+  }
+
+  .post-img,
+  .post-video {
+    animation: none;
+  }
+
+  .notes>* {
+    animation: none;
+  }
 }
 
 /* ============================================================
    BREADCRUMB
    ============================================================ */
 .crumb {
-  font-size: 0.92em;          /* smaller than body text */
+  font-size: 0.92em;
+  /* smaller than body text */
   margin-bottom: var(--lh);
   display: flex;
   align-items: center;
-  gap: 0.4em;                 /* space around the separators */
+  gap: 0.4em;
+  /* space around the separators */
 }
-.crumb a       { color: #9e9d9c; text-decoration: none; }  /* muted links */
-.crumb a:hover { color: #16130f; }                         /* darken on hover */
-.crumb .here   { color: #797775; }                         /* current page, a bit stronger */
-.crumb .sep    { color: #c8c6c4; }                         /* faint separator */
+
+.crumb a {
+  color: #9e9d9c;
+  text-decoration: none;
+}
+
+/* muted links */
+.crumb a:hover {
+  color: #16130f;
+}
+
+/* darken on hover */
+.crumb .here {
+  color: #797775;
+}
+
+/* current page, a bit stronger */
+.crumb .sep {
+  color: #c8c6c4;
+}
+
+/* faint separator */
 
 .crumb img {
-  height: 0.9em;          /* small — matches the crumb text */
-  width: auto;            /* keep its proportions */
+  height: 0.9em;
+  /* small — matches the crumb text */
+  width: auto;
+  /* keep its proportions */
   vertical-align: middle;
 }
 
 /* ============================================================
    AWARD-WINNING SIDENOTE
    ============================================================ */
-.has-note { position: relative; }   /* anchor for the note */
+.has-note {
+  position: relative;
+}
+
+/* anchor for the note */
 
 .note-trigger {
   font: inherit;
@@ -301,30 +503,43 @@ footer { animation-delay: 0.30s; }
   padding: 0;
   cursor: pointer;
 }
+
 .note-trigger sup {
   font-size: 0.7em;
   margin-left: 0.1em;
-  color: #9e9d9c;   /* muted, like your dim text */
+  color: #9e9d9c;
+  /* muted, like your dim text */
 }
 
 .sidenote {
   position: absolute;
-  left: 100%;                 /* just past the right edge of your text */
+  left: 100%;
+  /* just past the right edge of your text */
   top: 0;
   margin-left: 1.5rem;
   width: 12rem;
-  font-size: 0.92em;          /* matches breadcrumb + Experience label */
+  font-size: 0.92em;
+  /* matches breadcrumb + Experience label */
   color: #797775;
   border-left: 2px solid #e2dfdc;
   padding-left: 1em;
 }
-.sidenote[hidden] { display: none; }   /* hidden until clicked */
 
-.note-list { list-style: none; margin: 0.4em 0 0; }
+.sidenote[hidden] {
+  display: none;
+}
+
+/* hidden until clicked */
+
+.note-list {
+  list-style: none;
+  margin: 0.4em 0 0;
+}
 
 .note-list li {
   display: flex;
-  align-items: flex-start;   /* was center */
+  align-items: flex-start;
+  /* was center */
   gap: 0.5em;
   padding: 0.2em 0;
 }
@@ -344,32 +559,56 @@ footer { animation-delay: 0.30s; }
    RESPONSIVE — phones
    ============================================================ */
 @media (max-width: 600px) {
-  body   { padding-top: 2em; justify-content: start; }
-  footer { padding-bottom: 2em; }
+  body {
+    padding-top: 2em;
+    justify-content: start;
+  }
+
+  footer {
+    padding-bottom: 2em;
+  }
+
   a i,
-  .note-trigger i { border-color: #888; }
+  .note-trigger i {
+    border-color: #888;
+  }
 
-  .cv li     { align-items: flex-start; }
-  .cv .entry { flex-direction: column; gap: 0.1em; }
-  .cv .when  { margin-left: 0; }
+  .cv li {
+    align-items: flex-start;
+  }
+
+  .cv .entry {
+    flex-direction: column;
+    gap: 0.1em;
+  }
+
+  .cv .when {
+    margin-left: 0;
+  }
 
 
-    .notes a {
+  .notes a {
     display: inline-block;
-    max-width: calc(100% - 3em);   /* leaves room for the "05." number */
+    max-width: calc(100% - 3em);
+    /* leaves room for the "05." number */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    vertical-align: bottom;        /* keeps it level with the number */
+    vertical-align: bottom;
+    /* keeps it level with the number */
   }
 
   .crumb {
     flex-wrap: nowrap;
-    overflow: hidden;        /* clip anything that would spill */
+    overflow: hidden;
+    /* clip anything that would spill */
   }
+
   .crumb .here {
-    flex: 1;                 /* take the leftover space... */
-    min-width: 0;            /* ...and be allowed to shrink below content */
+    flex: 1;
+    /* take the leftover space... */
+    min-width: 0;
+    /* ...and be allowed to shrink below content */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -397,24 +636,39 @@ footer { animation-delay: 0.30s; }
   padding: 1em 1.2em;
   margin: var(--lh) 0;
 }
+
 /* keep the box padding even no matter what's inside */
-.callout > :first-child { margin-top: 0; }
-.callout > :last-child  { margin-bottom: 0; }
+.callout> :first-child {
+  margin-top: 0;
+}
+
+.callout> :last-child {
+  margin-bottom: 0;
+}
 
 .dots {
   display: flex;
-  justify-content: center;            /* center the row */
-  gap: 0.6em;                         /* ← spacing between dots */
-  margin: calc(var(--lh) * 2) 0;      /* space above/below the divider */
-}
-.dots span {
-  width: 5px;                         /* ← dot size */
-  height: 5px;
-  border-radius: 50%;                 /* makes each a circle */
-  background: #c8c6c4;                /* dot color (your faint separator tone) */
+  justify-content: center;
+  /* center the row */
+  gap: 0.6em;
+  /* ← spacing between dots */
+  margin: calc(var(--lh) * 2) 0;
+  /* space above/below the divider */
 }
 
-.it { font-style: italic; }
+.dots span {
+  width: 5px;
+  /* ← dot size */
+  height: 5px;
+  border-radius: 50%;
+  /* makes each a circle */
+  background: #c8c6c4;
+  /* dot color (your faint separator tone) */
+}
+
+.it {
+  font-style: italic;
+}
 
 .margin-note {
   position: absolute;
@@ -423,7 +677,8 @@ footer { animation-delay: 0.30s; }
   margin-left: 1.5rem;
   width: 12rem;
   font-size: 0.92em;
-  color: #9e9d9c;          /* muted, like a footnote */
+  color: #9e9d9c;
+  /* muted, like a footnote */
 }
 
 @media (max-width: 1000px) {
@@ -435,18 +690,23 @@ footer { animation-delay: 0.30s; }
     margin-top: var(--lh);
     margin-bottom: var(--lh);
     padding-left: 1em;
-    border-left: 2px solid #e2dfdc;   /* little bar when it drops inline */
+    border-left: 2px solid #e2dfdc;
+    /* little bar when it drops inline */
   }
 }
 
 .shelf {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);   /* 4 items, each fills width */
-  gap: 1.2em 1.0em;                        /* row-gap · column-gap ← lower this to close the gap */
-  margin: 0 0 var(--lh);   /* top 0, bottom var(--lh) */
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 items, each fills width */
+  gap: 1.2em 1.0em;
+  /* row-gap · column-gap ← lower this to close the gap */
+  margin: 0 0 var(--lh);
+  /* top 0, bottom var(--lh) */
   align-items: start;
 }
+
 .shelf a {
   display: flex;
   flex-direction: column;
@@ -454,12 +714,15 @@ footer { animation-delay: 0.30s; }
   padding: 0;
   margin: 0;
 }
+
 .shelf .cover {
-  width: 100%;              /* = "fill width" */
+  width: 100%;
+  /* = "fill width" */
   aspect-ratio: 2/3;
   object-fit: cover;
   border-radius: 3px;
 }
+
 .shelf .cap {
   font-size: 0.92em;
   color: #9e9d9c;
@@ -469,18 +732,27 @@ footer { animation-delay: 0.30s; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.shelf a:hover .cap { color: #16130f; }
+
+.shelf a:hover .cap {
+  color: #16130f;
+}
 
 @media (max-width: 600px) {
-  .shelf { grid-template-columns: repeat(4, 1fr); }
+  .shelf {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 
-.tracks { list-style: none; margin: 0 0 var(--lh); }
+.tracks {
+  list-style: none;
+  margin: 0 0 var(--lh);
+}
 
 .tracks a {
   display: flex;
-  align-items: center;      /* art + text vertically centered */
+  align-items: center;
+  /* art + text vertically centered */
   gap: 0.75em;
   padding: 0.4em 0;
   margin: 0;
@@ -489,51 +761,87 @@ footer { animation-delay: 0.30s; }
 .tracks .art {
   flex: 0 0 auto;
   width: 2.5em;
-  height: 2.5em;              /* equal = square */
+  height: 2.5em;
+  /* equal = square */
   object-fit: cover;
-  border-radius: 4px;       /* match your other thumbs; 0 for sharp */
+  border-radius: 4px;
+  /* match your other thumbs; 0 for sharp */
 }
 
 .tracks .track-text {
   display: flex;
-  flex-direction: column;   /* song on top, artist below */
-  min-width: 0;             /* lets long titles clip cleanly */
+  flex-direction: column;
+  /* song on top, artist below */
+  min-width: 0;
+  /* lets long titles clip cleanly */
 }
 
-.tracks .song   { color: #16130f; line-height: 1.3; }   /* highlight ink */
-.tracks .artist { color: #9e9d9c; font-size: 0.92em; line-height: 1.3; }  /* muted */
+.tracks .song {
+  color: #16130f;
+  line-height: 1.3;
+}
+
+/* highlight ink */
+.tracks .artist {
+  color: #9e9d9c;
+  font-size: 0.92em;
+  line-height: 1.3;
+}
+
+/* muted */
 
 
 /* ============================================================
    PLAYGROUND
    ============================================================ */
-.play { margin: 0 0 calc(var(--lh) * 1.5); }   /* gap between projects */
+.play {
+  margin: 0 0 calc(var(--lh) * 1.5);
+}
+
+/* gap between projects */
 
 .play-media {
   width: 100%;
-  aspect-ratio: 16 / 9;     /* the frame; same for every media type */
+  aspect-ratio: 16 / 9;
+  /* the frame; same for every media type */
   border-radius: 6px;
-  overflow: hidden;          /* clips whatever's inside to the rounded frame */
-  background: #ececec;       /* placeholder tone while things load */
+  overflow: hidden;
+  /* clips whatever's inside to the rounded frame */
+  background: #ececec;
+  /* placeholder tone while things load */
 }
-.play-media > * {
+
+.play-media>* {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* fills the frame for <img> and <video> */
-  border: 0;                 /* kills the default <iframe> border */
+  object-fit: cover;
+  /* fills the frame for <img> and <video> */
+  border: 0;
+  /* kills the default <iframe> border */
 }
 
 
 .play-meta {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;   /* title left, date right */
+  justify-content: space-between;
+  /* title left, date right */
   gap: 1em;
   margin: 0.5em 0 0;
 }
-.play-title { color: #16130f; }                       /* ink */
-.play-date  { color: #9e9d9c; white-space: nowrap; }  /* muted, never wraps */
+
+.play-title {
+  color: #16130f;
+}
+
+/* ink */
+.play-date {
+  color: #9e9d9c;
+  white-space: nowrap;
+}
+
+/* muted, never wraps */
 
 
 
@@ -550,45 +858,284 @@ footer { animation-delay: 0.30s; }
   align-items: baseline;
   margin-bottom: 0.6em;
 }
-.voice-label { color: #797775; }
-.voice-time  { color: #9e9d9c; font-size: 0.92em; font-variant-numeric: tabular-nums; }
 
-.voice-controls { display: flex; align-items: center; gap: 0.8em; }
+.voice-label {
+  color: #797775;
+}
+
+.voice-time {
+  color: #9e9d9c;
+  font-size: 0.92em;
+  font-variant-numeric: tabular-nums;
+}
+
+.voice-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
 
 .voice-play {
   flex: 0 0 auto;
-  width: 3em; height: 3em;
-  border: 0; background: none; padding: 0;
-  color: #16130f; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
+  width: 3em;
+  height: 3em;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #16130f;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.voice-play img { width: 100%; height: 100%; display: block; }
-.voice-play .i-pause                { display: none; }   /* hidden at rest */
-.voice.playing .voice-play .i-play  { display: none; }   /* swap on play */
-.voice.playing .voice-play .i-pause { display: block; }
+.voice-play img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.voice-play .i-pause {
+  display: none;
+}
+
+/* hidden at rest */
+.voice.playing .voice-play .i-play {
+  display: none;
+}
+
+/* swap on play */
+.voice.playing .voice-play .i-pause {
+  display: block;
+}
 
 
 .voice-wave {
   flex: 1 1 auto;
-  display: flex; align-items: center;
-  gap: 4px; height: 3.5em;
-  position: relative;   /* anchor for the line */
-  cursor: none;         /* hide the real cursor over the wave */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 3.5em;
+  position: relative;
+  /* anchor for the line */
+  cursor: none;
+  /* hide the real cursor over the wave */
 }
+
 .voice-wave span {
-  flex: 1 1 auto; min-width: 2px;
-  background: #cdcbc8;                     /* unplayed bar */
+  flex: 1 1 auto;
+  min-width: 2px;
+  background: #cdcbc8;
+  /* unplayed bar */
   border-radius: 4px;
 }
-.voice-wave span.played { background: #797775; }   /* played bar (ink) */
+
+.voice-wave span.played {
+  background: #797775;
+}
+
+/* played bar (ink) */
 
 .voice-cursor {
   position: absolute;
-  top: 0; bottom: 0;          /* full height, vertically fixed */
+  top: 0;
+  bottom: 0;
+  /* full height, vertically fixed */
   width: 2px;
   background: #16130f;
-  transform: translateX(-50%);/* centers the line on the mouse X */
-  pointer-events: none;       /* never blocks the seek click */
-  opacity: 0;                 /* hidden until you hover */
+  transform: translateX(-50%);
+  /* centers the line on the mouse X */
+  pointer-events: none;
+  /* never blocks the seek click */
+  opacity: 0;
+  /* hidden until you hover */
+}
+
+.play a {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.vid {
+  position: relative;
+  width: 100%;
+  margin: var(--lh) 0;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.vid video {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* respects each video's own ratio */
+}
+
+/* centered blurred-glass button */
+.vid-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.5em;
+  height: 3.5em;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* Safari / iOS */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.vid-btn img {
+  width: 60%;
+  height: 60%;
+  display: block;
+}
+
+/* icon + visibility states */
+.vid .i-pause {
+  display: none;
+}
+
+/* pause hidden at rest */
+.vid.playing .i-play {
+  display: none;
+}
+
+/* while playing: */
+.vid.playing .i-pause {
+  display: block;
+}
+
+/*   show pause icon */
+.vid.playing .vid-btn {
+  opacity: 0;
+}
+
+/*   button hidden... */
+.vid.playing:hover .vid-btn {
+  opacity: 1;
+}
+
+/*   ...until you hover */
+
+
+
+.vid-tools {
+  position: absolute;
+  bottom: 0.6em;
+  right: 0.6em;
+  display: flex;
+  gap: 0.4em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vid:hover .vid-tools {
+  opacity: 1;
+}
+
+.vid-tools button {
+  border: 0;
+  padding: 0.2em 0.8em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+/* the widen animation: breaks out of the text column, pushes content down */
+.vid {
+  transition: width 0.4s ease, margin-left 0.4s ease;
+}
+
+.vid.wide {
+  width: 70vw;
+  margin-left: calc(50% - 35vw);
+  /* re-centers the wider element */
+}
+
+.duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* two equal columns, both fill the space */
+  gap: 0.4em;
+  /* same as your reading-list column gap */
+  margin: var(--lh) 0;
+}
+
+.duo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  /* match your other images */
+}
+
+.made-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 var(--lh);
+  /* no top margin — sits tight under the label */
+  color: #9e9d9c;
+  /* dimmed, as you like */
+  font-size: 0.92em;
+}
+
+.made-list li {
+  position: relative;
+  padding-left: 1em;
+  /* room for the bullet, text hangs neatly */
+  margin: 0.1em 0;
+}
+
+.made-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  /* bullet sits flush with the label's left edge */
+}
+
+/* cover image inside a margin-note */
+.margin-note .note-cover {
+  display: block;
+  width: 100%;
+  max-width: 8rem;
+  /* stays small, incl. when it drops inline on mobile */
+  aspect-ratio: 3 / 4;
+  /* the IG 3:4 */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.4em;
+}
+
+/* fade the note out while the hero video is wide */
+.margin-note {
+  transition: opacity 0.3s ease;
+}
+
+.vid.wide~.margin-note {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hl {
+  background: #E8EAFF;                    /* your callout bg */
+  color: #5B65FC;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;                  /* the rectangle around the word */
+  -webkit-box-decoration-break: clone;    /* keeps bg+corners intact if it wraps a line */
+  box-decoration-break: clone;
 }
