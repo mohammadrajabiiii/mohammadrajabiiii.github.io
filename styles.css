@@ -46,6 +46,15 @@ html {
 /* ============================================================
    LAYOUT
    ============================================================ */
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist[wght].woff2") format("woff2");
+  font-weight: 100 900;     /* variable = one file covers every weight */
+  font-display: swap;
+}
+
+
 body {
   font: 0.85em/var(--lh) "Geist", sans-serif;
   color: #797775;
