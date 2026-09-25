@@ -164,7 +164,7 @@ footer a {
 }
 
 .me {
-  width: 40px;
+  width: 44px;
   height: auto;
   display: block;
   margin-bottom: calc(var(--lh) + 0.5em);
@@ -1180,4 +1180,52 @@ footer {
 
 .misc-list {
   list-style: none;
+}
+
+.work-art {
+  display: block;
+  max-width: 50%;
+  margin: calc(var(--lh) * 6) auto var(--lh);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin: calc(var(--lh)*2) 0;
+}
+
+.dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c8c6c4;
+}
+
+.working {
+  text-align: center;
+  color: #9E9D9C;
+}
+
+.load-dots span {
+  animation: blink 1.2s infinite;
+}
+
+.load-dots span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.load-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
