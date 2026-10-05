@@ -174,3 +174,11 @@ document.querySelectorAll('.vid').forEach(function (box) {
 
 
 });
+
+
+document.querySelectorAll('.dish').forEach(function (dish) {
+  dish.addEventListener('click', function () {
+    var open = dish.classList.toggle('revealed');
+    dish.setAttribute('aria-pressed', open);
+  });
+});

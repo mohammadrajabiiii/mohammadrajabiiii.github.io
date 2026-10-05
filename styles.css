@@ -1229,3 +1229,98 @@ footer {
     opacity: 1;
   }
 }
+
+.reveal-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin: var(--lh) 0;
+}
+
+@media (max-width: 600px) {
+  .reveal-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dish {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #ececec;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* the two layers, stacked in the same spot */
+.dish .front,
+.dish .back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  /* the dissolve */
+}
+
+.dish .back {
+  opacity: 0;
+}
+
+.dish .front {
+  opacity: 1;
+}
+
+.dish.revealed .front {
+  opacity: 0;
+}
+
+.dish.revealed .back {
+  opacity: 1;
+}
+
+/* the white card on the front */
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #16130f;
+  width: 70%;
+  text-align: left;
+}
+
+.card-icon {
+  font-size: 1.4em;
+}
+
+.card-title {
+  margin: 0.8em 0 0.2em;
+}
+
+.card-text {
+  color: #797775;
+}
+
+/* pasta image on the front */
+.pasta-img {
+  width: 75%;
+  height: auto;
+}
+
+/* the code box on the back */
+.dish .back {
+  background: #fff;
+}
+
+/* white, to match the card side */
+.dish pre {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8em;
+  line-height: 1.5;
+  color: #16130f;
+  text-align: left;
+}
+
